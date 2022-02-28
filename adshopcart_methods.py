@@ -1,4 +1,5 @@
 import datetime
+from time import sleep
 from selenium import webdriver
 import adshopcart_locators as locators
 
