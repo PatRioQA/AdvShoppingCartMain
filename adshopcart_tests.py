@@ -4,11 +4,12 @@ import unittest
 
 
 class AdshopcartPositiveTestCases(unittest.TestCase):
-
-    def test_adshopcart(self):
-        setUp()
-        create_new_user()
-        log_out()
-        log_in()
-        delete_account()
-        tearDown()
+         @staticmethod
+         def test_main_advantage_shopping_cart():
+                 methods.setUp()
+                 methods.create_new_user()
+                 methods.log_out()
+                 methods.log_in()
+                 methods.check_homepage()
+                 methods.delete_account()
+                 methods.tearDown()
