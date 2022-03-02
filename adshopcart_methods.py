@@ -10,7 +10,6 @@ from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome('C:/Users/Patrich/PycharmProjects/advantage_shopping_cart/chromedriver.exe')
 
-
 def setUp():
     # Make a full screen
     driver.maximize_window()
@@ -22,7 +21,6 @@ def setUp():
     driver.get(locators.adshopcart_url)
 
    # print(driver.title)
-
 
     # Checking that we're on the correct URL address and we're seeing correct title
     if driver.current_url == locators.adshopcart_url and driver.title == " Advantage Shopping" :
@@ -64,9 +62,13 @@ def create_new_user():
     sleep(1.25)
     driver.find_element(By.XPATH, "//*[@id='loginMiniTitle']//label[text()='My account']").click()
     sleep(1.25)
+    if driver.find_element(By.XPATH, "//*[@id='myAccountContainer']/div/div/div/label").is_displayed():
+        print(f'New shopper {locators.first_name} {locators.last_name} is here. Test passed.')
+        sleep(1.25)
     driver.find_element(By.XPATH, "//*[@id='menuUserLink']").click()
     sleep(1.25)
     driver.find_element(By.XPATH, "//*[@id='loginMiniTitle']//label[text()='My orders']").click()
+    sleep(1.25)
 
 
 def log_out():
@@ -100,8 +102,6 @@ def delete_account():
     driver.find_element(By.XPATH, "//div[text()='yes']").click()
     sleep(1.25)
     print('--- Check and Delete User created --- is passed')
-
-
 
 def tearDown():
     if driver is not None:
