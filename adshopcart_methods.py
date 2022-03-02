@@ -116,6 +116,7 @@ def tearDown():
         sys.stdout = log_file
         print(f'Email: {locators.email}\nUsername: {locators.new_username}\nPassword: {locators.new_password}\n')
         sys.stdout = old_instance
+        print("Good job lets get some jollibee")
         log_file.close()
 
 
