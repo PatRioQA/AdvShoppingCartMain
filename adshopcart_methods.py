@@ -93,6 +93,53 @@ def log_in():
             if driver.current_url == locators.adshopcart_url:
                 print("Log in successfully.")
 
+def check_homepage():
+    if driver.current_url == locators.adshopcart_url and driver.title == " Advantage Shopping" :
+        print(f'We are at the Advantage Shopping Cart homepage -- {driver.title}')
+    else:
+        print(f'We are not at the Advantage Shopping Cart homepage. Check your code!')
+        driver.close()
+        driver.quit()
+    sleep(0.25)
+
+    if driver.find_element(By.XPATH, "//*[contains(@class, 'logo')]/a").is_displayed():
+        print(f'We are seeing title message -- "Advantage Shopping"')
+        sleep(1)
+
+    if driver.find_element(By.XPATH, "//a[text()='SPECIAL OFFER']").is_displayed():
+        print(f'These are our Special Offers')
+        sleep(1)
+    driver.find_element(By.XPATH, "//a[text()='SPECIAL OFFER']").click()
+    sleep(1)
+
+    if driver.find_element(By.XPATH, "//a[text()='POPULAR ITEMS']").is_displayed():
+        print(f'These are our Popular Items')
+        sleep(1)
+        driver.find_element(By.XPATH, "//a[text()='POPULAR ITEMS']").click()
+        sleep(1)
+
+    if driver.find_element(By.XPATH, "//a[text()='CONTACT US']").is_displayed():
+        print(f'Have any troubles? Get in touch with us!')
+        sleep(1)
+        driver.find_element(By.XPATH, "//a[text()='CONTACT US']").click()
+        sleep(1)
+
+    Select(driver.find_element(By.XPATH, "//*[@name='categoryListboxContactUs']")).select_by_visible_text('Laptops')
+    sleep(3)
+    driver.find_element(By.CSS_SELECTOR, "[name='emailContactUs']").send_keys(locators.email)
+    sleep(1)
+    driver.find_element(By.CSS_SELECTOR, "[name='subjectTextareaContactUs']").send_keys(locators.subject)
+    sleep(.75)
+    driver.find_element(By.XPATH, "//*[@id='send_btnundefined']").click()
+    sleep(1.25)
+    driver.find_element(By.XPATH, "//*[contains(@class, 'a-button')]").click()
+    sleep(1)
+    if driver.current_url == locators.adshopcart_url and driver.title == " Advantage Shopping" :
+        print(f'Thank you for your message, please continue shopping with us at -- {driver.title}')
+
+
+
+
 def delete_account():
     driver.find_element(By.XPATH, "//*[@id='menuUserLink']").click()
     sleep(1.25)
@@ -120,9 +167,11 @@ def tearDown():
         log_file.close()
 
 
-setUp()
-create_new_user()
-log_out()
-log_in()
-delete_account()
-tearDown()
+
+# setUp()
+# create_new_user()
+# check_homepage()
+# log_out()
+# log_in()
+# delete_account()
+# tearDown()
