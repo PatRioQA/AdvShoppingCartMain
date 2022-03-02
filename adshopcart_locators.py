@@ -8,3 +8,4 @@ first_name = fake.first_name()
 last_name = fake.last_name()
 email = fake.email()
 phone = fake.phone_number()
+subject = 'Some BBQ and soda would be real good right about now, but lets first get this sorted out.'
