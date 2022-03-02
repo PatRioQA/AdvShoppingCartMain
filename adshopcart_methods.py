@@ -8,7 +8,8 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome('C:/Users/Patrich/PycharmProjects/advantage_shopping_cart/chromedriver.exe')
+s = Service('C:/Users/Patrich/PycharmProjects/advantage_shopping_cart/chromedriver.exe')
+driver = webdriver.Chrome(service=s)
 
 def setUp():
     # Make a full screen
