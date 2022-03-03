@@ -12,4 +12,5 @@ class AdshopcartPositiveTestCases(unittest.TestCase):
                  methods.log_in()
                  methods.check_homepage()
                  methods.delete_account()
+                 methods.log_in()
                  methods.tearDown()
